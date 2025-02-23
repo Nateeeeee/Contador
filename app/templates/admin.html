@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel de Admin</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="login-page">
+  <div class="login-container">
+    <h2>Painel de Administração</h2>
+    
+    <!-- Mensagens de sucesso/erro -->
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for msg in messages %}
+          <div class="success">{{ msg }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    
+    <!-- Lista de códigos disponíveis -->
+    <h3>Códigos de Convite Disponíveis</h3>
+    <ul>
+      {% for codigo in codigos %}
+        <li>
+          {{ codigo }}
+          <form method="POST" action="{{ url_for('apagar_codigo', codigo=codigo) }}" style="display: inline;">
+            <button type="submit" class="btn-apagar">Apagar</button>
+          </form>
+        </li>
+      {% else %}
+        <li>Nenhum código disponível.</li>
+      {% endfor %}
+    </ul>
+    
+    <!-- Lista de códigos utilizados -->
+    <h3>Códigos de Convite Utilizados</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Usuário</th>
+          <th>Data/Hora</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for codigo in codigos_utilizados %}
+          <tr>
+            <td>{{ codigo[0] }}</td>
+            <td>{{ codigo[1] }}</td>
+            <td>{{ codigo[2] }}</td>
+          </tr>
+        {% else %}
+          <tr>
+            <td colspan="3">Nenhum código utilizado.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    
+    <!-- Formulário para gerar novos códigos -->
+    <h3>Gerar Novos Códigos</h3>
+    <form method="POST" action="{{ url_for('gerar_convites') }}">
+      <label for="quantidade">Quantidade de códigos a gerar:</label>
+      <input type="number" name="quantidade" id="quantidade" min="1" max="50" value="5" required>
+      <button type="submit">Gerar Códigos</button>
+    </form>
+    
+    <!-- Link para gerenciar usuários -->
+    <p><a href="{{ url_for('admin_usuarios') }}">Gerenciar Usuários</a></p>
+    
+    <!-- Link para voltar -->
+    <p><a href="{{ url_for('index') }}">Voltar para o contador</a></p>
+  </div>
+</body>
+</html>

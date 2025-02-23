@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar Usuário</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="login-page">
+  <div class="login-container">
+    <h2>Editar Usuário</h2>
+    
+    <!-- Mensagens de sucesso/erro -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, msg in messages %}
+          <div class="{{ category }}">{{ msg }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    
+    <!-- Formulário de edição -->
+    <form method="POST">
+      <label for="username">Nome de usuário:</label>
+      <input type="text" name="username" id="username" value="{{ usuario.username }}">
+      
+      <label for="password">Nova senha (deixe em branco para não alterar):</label>
+      <input type="password" name="password" id="password">
+      
+      <button type="submit">Salvar</button>
+    </form>
+    
+    <!-- Link para voltar à lista de usuários -->
+    <p><a href="{{ url_for('admin_usuarios') }}">Voltar à lista de usuários</a></p>
+  </div>
+</body>
+</html>

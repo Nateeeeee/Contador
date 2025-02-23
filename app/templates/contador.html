@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contador Crescente</title>
+  <!-- Fonte Roboto Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="contador-page">
+  <!-- Botão de Admin (apenas para usuário admin) -->
+  {% if session.get('username') == 'admin' %}
+    <a href="{{ url_for('admin') }}" class="btn-admin">Admin</a>
+  {% endif %}
+
+  <div class="container">
+    <!-- Exibe a imagem aleatória -->
+    {% if imagem_url %}
+      <div class="imagem-container">
+        <img src="{{ imagem_url }}" alt="Imagem Aleatória" class="imagem-aleatoria">
+      </div>
+    {% endif %}
+
+    <h1>Tempo desde do inicio do namoro♥♥♥!!!</h1>
+    <div id="contador"></div>
+    <a href="{{ url_for('logout') }}">Sair</a>
+  </div>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

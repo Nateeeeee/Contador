@@ -1,0 +1,290 @@
+/* ============ Reset e Estilos Globais ============ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto Mono', monospace;
+}
+
+/* ============ Fundo Neon Roxo para ambas as páginas ============ */
+body.login-page,
+body.contador-page {
+  background: linear-gradient(135deg, #3f0071, #9c27b0);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============ Estilos para a Página de Login/Cadastro ============ */
+.login-container {
+  background: rgba(30, 30, 30, 0.9);
+  padding: 2rem;
+  border: 1px solid #9c27b0;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(156, 39, 176, 0.5);
+  width: 300px;
+  max-height: 90vh;  /* Limita a altura máxima do container */
+  overflow-y: auto;  /* Adiciona uma barra de rolagem vertical se necessário */
+}
+
+.login-container h2 {
+  margin-bottom: 1rem;
+  color: #e1bee7;
+  text-shadow: 0 0 8px #9c27b0;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  border: 1px solid #9c27b0;
+  border-radius: 4px;
+  background: #2c2c2c;
+  color: #fff;
+}
+
+.login-container input::placeholder {
+  color: #bbb;
+}
+
+.login-container button {
+  padding: 0.75rem;
+  width: 100%;
+  background: #9c27b0;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.login-container button:hover {
+  background: #ab47bc;
+}
+
+.error {
+  color: #ff5252;
+  margin-bottom: 0.5rem;
+}
+
+.success {
+  color: #4caf50;
+  margin-bottom: 0.5rem;
+}
+
+.login-container p {
+  margin-top: 1rem;
+}
+
+.login-container a {
+  color: #e1bee7;
+  text-decoration: none;
+  border-bottom: 1px solid #e1bee7;
+}
+
+.login-container a:hover {
+  color: #ffeb3b;
+  border-bottom: 1px solid #ffeb3b;
+}
+
+/* ============ Estilos para a Página do Contador ============ */
+.container {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 2rem 3rem;
+  border: 2px solid #9c27b0;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(156, 39, 176, 0.6);
+  text-align: center;
+}
+
+.container h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #9c27b0;
+  text-shadow: 0 0 8px #9c27b0;
+}
+
+#contador {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #e1bee7;
+  text-shadow: 0 0 8px #9c27b0;
+}
+
+.container a {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #e1bee7;
+  text-decoration: none;
+  font-size: 0.9rem;
+  border: 1px solid #9c27b0;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.container a:hover {
+  background: #9c27b0;
+}
+
+/* ============ Estilos para a Imagem Aleatória ============ */
+.imagem-container {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.imagem-aleatoria {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(156, 39, 176, 0.5);
+}
+
+/* ============ Estilos para o Painel de Admin ============ */
+.login-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.login-container li {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem;
+  margin: 0.25rem 0;
+  border-radius: 4px;
+  color: #e1bee7;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.login-container form {
+  margin-top: 1.5rem;
+}
+
+.login-container label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #e1bee7;
+}
+
+.login-container input[type="number"] {
+  width: 100%;
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  border: 1px solid #9c27b0;
+  border-radius: 4px;
+  background: #2c2c2c;
+  color: #fff;
+}
+
+/* Estilos para o botão de apagar */
+.btn-apagar {
+  background: #ff5252;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-apagar:hover {
+  background: #ff1744;
+}
+
+/* Estilos para a tabela de códigos utilizados */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+table th, table td {
+  padding: 0.5rem;
+  border: 1px solid #9c27b0;
+  text-align: left;
+}
+
+table th {
+  background: rgba(156, 39, 176, 0.2);
+  color: #e1bee7;
+}
+
+table td {
+  color: #fff;
+}
+
+/* ============ Estilos Responsivos ============ */
+@media (max-width: 768px) {
+  .login-container {
+    width: 90%;  /* Reduz a largura do container em telas menores */
+    padding: 1rem;  /* Reduz o padding */
+  }
+
+  .login-container h2 {
+    font-size: 1.5rem;  /* Reduz o tamanho do título */
+  }
+
+  .login-container input,
+  .login-container button {
+    padding: 0.5rem;  /* Reduz o padding dos inputs e botões */
+  }
+
+  table {
+    font-size: 0.9rem;  /* Reduz o tamanho da fonte da tabela */
+  }
+
+  table th, table td {
+    padding: 0.25rem;  /* Reduz o padding das células da tabela */
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    width: 100%;  /* Ocupa toda a largura em telas muito pequenas */
+    border-radius: 0;  /* Remove bordas arredondadas */
+  }
+
+  .login-container h2 {
+    font-size: 1.25rem;  /* Reduz ainda mais o tamanho do título */
+  }
+
+  .login-container input,
+  .login-container button {
+    font-size: 0.9rem;  /* Reduz o tamanho da fonte dos inputs e botões */
+  }
+
+  table {
+    font-size: 0.8rem;  /* Reduz ainda mais o tamanho da fonte da tabela */
+  }
+
+  table th, table td {
+    padding: 0.2rem;  /* Reduz ainda mais o padding das células da tabela */
+  }
+}
+
+/* ============ Estilos para o Botão de Admin ============ */
+.btn-admin {
+  position: fixed;  /* Fixa o botão na tela */
+  top: 1rem;  /* Distância do topo */
+  right: 1rem;  /* Distância da direita */
+  background: #9c27b0;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
+}
+
+.btn-admin:hover {
+  background: #ab47bc;
+}
