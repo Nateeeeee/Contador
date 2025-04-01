@@ -16,8 +16,19 @@ function atualizarContador() {
   const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
   const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
 
-  document.getElementById("contador").innerHTML = 
-    `${anos}a ${meses % 12}m ${dias}d ${horas}h ${minutos}m ${segundos}s`;
+  let contadorTexto = "";
+
+  if (anos > 0) {
+    contadorTexto += `${anos}a `;
+  }
+
+  if (meses % 12 > 0) {
+    contadorTexto += `${meses % 12}m `;
+  }
+
+  contadorTexto += `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+
+  document.getElementById("contador").innerHTML = contadorTexto;
 }
 
 setInterval(atualizarContador, 1000);
