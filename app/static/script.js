@@ -33,7 +33,17 @@ function atualizarContador() {
   const segundos = Math.floor((diferencaEmMilissegundos % (1000 * 60)) / 1000);
   const horas = horasTotais % 24;
 
-  let contadorTexto = `${diferenca.anos}A ${diferenca.meses}M ${diferenca.dias}d ${horas}h ${minutos}m ${segundos}s`;
+  let contadorTexto = "";
+
+  if (diferenca.anos > 0) {
+      contadorTexto += `${diferenca.anos}A `;
+  }
+
+  if (diferenca.meses > 0) {
+      contadorTexto += `${diferenca.meses}M `;
+  }
+
+  contadorTexto += `${diferenca.dias}d ${horas}h ${minutos}m ${segundos}s`;
 
   document.getElementById("contador").innerHTML = contadorTexto;
 }
